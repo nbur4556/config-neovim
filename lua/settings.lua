@@ -18,6 +18,7 @@ vim.opt.cursorline = true
 -- Enable spell check
 vim.opt.spell = true
 vim.opt.spelloptions = 'camel'
+vim.cmd("highlight SpellBad cterm=undercurl,italic gui=undercurl,italic")
 
 -- FIX: tabs do not seem to be working as expected
 -- Handle indentation
