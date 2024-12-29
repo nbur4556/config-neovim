@@ -1,6 +1,8 @@
 -- FIX: ai-code-completion: Lot's of new bugs introduced with this chage. Such as crashing when deleting a line
 -- FIX: ai-code-completion: This is likely due to updating packages when I set this up...
 -- FIX: ai-code-completion: Redo this branch without updating packages
+-- TODO: ai-code-completion: Allow custom system prompt
+
 -- AI code completion
 return {
   "yetone/avante.nvim",
