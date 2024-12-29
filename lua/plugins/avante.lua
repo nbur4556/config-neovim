@@ -1,3 +1,6 @@
+-- FIX: ai-code-completion: Lot's of new bugs introduced with this chage. Such as crashing when deleting a line
+-- FIX: ai-code-completion: This is likely due to updating packages when I set this up...
+-- FIX: ai-code-completion: Redo this branch without updating packages
 -- AI code completion
 return {
   "yetone/avante.nvim",
@@ -8,6 +11,12 @@ return {
     provider = "ollama",
     vendors = {
       ollama = {
+        __inherited_from = "openai",
+        api_key_name = "",
+        endpoint = "http://10.0.0.91:11434/v1",
+        model = "deepseek-coder-v2",
+      },
+      ollama_chat = {
         __inherited_from = "openai",
         api_key_name = "",
         endpoint = "http://10.0.0.91:11434/v1",
