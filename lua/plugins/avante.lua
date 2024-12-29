@@ -9,11 +9,9 @@ return {
     vendors = {
       ollama = {
         __inherited_from = "openai",
-        endpoint = "http://10.0.0.91:11434",
-        api_keyname = "",
-        model = "deepseek-coder-v2",
-        temperature = 0,
-        max_tokens = 4096
+        api_key_name = "",
+        endpoint = "http://10.0.0.91:11434/v1",
+        model = "openhermes",
       },
     },
   },
