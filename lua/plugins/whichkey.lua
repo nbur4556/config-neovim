@@ -1,9 +1,10 @@
--- displays command and key chain options and help
+--p displays command and key chain options and help
 return { 'folke/which-key.nvim', opts = {},
 	config = function()
 		-- document existing key chains
 		require('which-key').register {
 			['<leader>a'] = { name = '[A]vante', _ = 'which_key_ignore' },
+			['<leader>ap'] = { name = '[A]vante Switch [P]rovider', _ = 'which_key_ignore' },
 			['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
 			['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
 			['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },

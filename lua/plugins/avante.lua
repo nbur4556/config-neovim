@@ -1,3 +1,8 @@
+-- TODO: ai-code-completion Organize these (they can not go in a config function without setting up the config correctly)
+vim.keymap.set('n', '<leader>apo', '<CMD>AvanteSwitchProvider ollama<CR>', { desc = '[O]llama' });
+vim.keymap.set('n', '<leader>apc', '<CMD>AvanteSwitchProvider ollama_chat<CR>', { desc = 'Ollama [C]hat' });
+vim.keymap.set('n', '<leader>apt', '<CMD>AvanteSwitchProvider ollama_think<CR>', { desc = 'Ollama [T]hink' });
+        
 -- AI code completion
 return {
   "yetone/avante.nvim",
@@ -6,6 +11,7 @@ return {
   version = false, -- set this if you want to always pull the latest change
   opts = {
     provider = "ollama",
+    auto_suggestions_provider = "ollama",
     vendors = {
       ollama = {
         __inherited_from = "openai",
