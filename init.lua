@@ -14,6 +14,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- quick remapping
+vim.keymap.set("v", ">", ">gv", { noremap = true})
+vim.keymap.set("v", "<", "<gv", { noremap = true})
+
 require('lazy').setup('plugins');
 require('settings');
 
