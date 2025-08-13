@@ -30,6 +30,7 @@ local function keymaps(bufnr)
 	end, '[W]orkspace [L]ist Folders')
 end
 
+-- TODO: can we get gdscript configuration working too?
 return {
 	-- LSP Configuration & Plugins
 	'neovim/nvim-lspconfig',
@@ -53,7 +54,7 @@ return {
 		require('mason').setup()
 		require('mason-lspconfig').setup({
 			automatic_installation = true,
-			ensure_installed = { "gdscript", "omnisharp"},
+			ensure_installed = {"omnisharp"},
 		})
 		
 		-- Setup neovim lua configuration
@@ -92,13 +93,6 @@ return {
 					settings = servers[server_name],
 					filetypes = (servers[server_name] or {}).filetypes,
 				}
-			end,
-			["gdscript"] = function()
-				require('lspconfig').gdscript.setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-					-- TODO: do I need godot specific settings and filetypes?
-				})
 			end,
 			["omnisharp"] = function()
 				require("lspconfig").omnisharp.setup({
