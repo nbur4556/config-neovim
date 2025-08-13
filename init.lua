@@ -14,6 +14,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local gdprojectfile = vim.fn.getcwd() .. '/project.godot'
+if gdprojectfile then
+  vim.fn.serverstart('127.0.0.1:55432')
+end
+
 require('lazy').setup('plugins');
 require('settings');
 
