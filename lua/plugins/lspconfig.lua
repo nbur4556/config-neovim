@@ -36,17 +36,12 @@ return {
 	dependencies = {
 		{ 'williamboman/mason.nvim', config = true },
 		'williamboman/mason-lspconfig.nvim',
-
-		-- Useful status updates for LSP
-		{ 'j-hui/fidget.nvim',       opts = {} },
-
-		-- Additional lua configuration, makes nvim stuff amazing!
-		'folke/neodev.nvim',
+		{ 'j-hui/fidget.nvim', opts = {} }, -- Useful status updates for LSP
+		'folke/neodev.nvim',-- Additional lua configuration, makes nvim stuff amazing!
 	},
 	config = function()
 		local on_attach = function(_, bufnr)
 			keymaps(bufnr)
-
 			-- Create a command `:Format` local to the LSP buffer
 			vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
 				vim.lsp.buf.format()
@@ -56,7 +51,10 @@ return {
 		-- mason-lspconfig requires that these setup functions are called in this order
 		-- before setting up the servers.
 		require('mason').setup()
-		require('mason-lspconfig').setup()
+		require('mason-lspconfig').setup({
+			automatic_installation = true,
+			ensure_installed = { "gdscript", "omnisharp"},
+		})
 
 		-- Enable the following language servers
 		local servers = {
