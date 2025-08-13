@@ -56,7 +56,7 @@ return {
 	  -- Add languages to be installed here that you want installed for treesitter
 	  ensure_installed = { 'c', 'cpp','lua', 'python','tsx', 'javascript', 'typescript', 'svelte', 'vimdoc', 'vim', 'bash', 'gdscript', 'godot_resource'},
 
-	  auto_install = false,
+	  auto_install = true,
 	  sync_install = false,
 	  ignore_install = {},
 	  modules = {},
