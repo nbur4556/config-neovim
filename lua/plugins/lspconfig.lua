@@ -55,6 +55,9 @@ return {
 			automatic_installation = true,
 			ensure_installed = { "gdscript", "omnisharp"},
 		})
+		
+		-- Setup neovim lua configuration
+		require('neodev').setup()
 
 		-- Enable the following language servers
 		local servers = {
@@ -64,13 +67,11 @@ return {
 					telemetry = { enable = false },
 				},
 			},
+			omnisharp = { filetypes = { 'cs' }},
 			rust_analyzer = { filetypes = { 'rust', 'rs' } },
 			svelte = { filetypes = { 'svelte' } },
 			tsserver = {},
 		}
-
-		-- Setup neovim lua configuration
-		require('neodev').setup()
 
 		-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -91,6 +92,22 @@ return {
 					settings = servers[server_name],
 					filetypes = (servers[server_name] or {}).filetypes,
 				}
+			end,
+			["gdscript"] = function()
+				require('lspconfig').gdscript.setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+					-- TODO: do I need godot specific settings and filetypes?
+				})
+			end,
+			["omnisharp"] = function()
+				require("lspconfig").omnisharp.setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+					settings = servers["omnisharp"],
+					filetypes = servers["omnisharp"].filetypes,
+					-- TODO: do I need godot specific settings and filetypes?
+				})
 			end,
 		}
 	end
