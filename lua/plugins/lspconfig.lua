@@ -96,6 +96,7 @@ return {
 			end,
 			["omnisharp"] = function()
 				require("lspconfig").omnisharp.setup({
+					cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll"},
 					on_attach = on_attach,
 					capabilities = capabilities,
 					settings = servers["omnisharp"],
