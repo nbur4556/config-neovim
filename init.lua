@@ -374,8 +374,9 @@ do
     spec = {
       { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
       { '<leader>t', group = '[T]oggle' },
-      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
       { '<leader>g', group = '[G]it' },
+      { '<leader>gh', group = '[G]it [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
+      { '<leader>gt', group = '[G]it [T]oggle', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
       { '<leader>n', group = '[N]otepad' },
       { '<leader>r', group = '[R]e[N]ame', mode = { 'n' } },
       { '<leader>c', group = 'LSP: [C]ode', mode = { 'n' } },
@@ -537,7 +538,6 @@ do
 
   -- Add Telescope-based LSP pickers when an LSP attaches to a buffer.
   -- If you later switch picker plugins, this is where to update these mappings.
-  --TODO: I should redo these mappings
   vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('telescope-lsp-attach', { clear = true }),
     callback = function(event)
@@ -999,7 +999,7 @@ do
   -- require 'kickstart.plugins.lint'
   require 'kickstart.plugins.autopairs'
   -- require 'kickstart.plugins.neo-tree'
-  -- require 'kickstart.plugins.gitsigns' -- adds gitsigns recommended keymaps
+  require 'kickstart.plugins.gitsigns' -- adds gitsigns recommended keymaps
 
   -- NOTE: You can add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --

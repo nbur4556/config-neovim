@@ -2,8 +2,6 @@
 -- NOTE: gitsigns is already included in init.lua but contains only the base
 -- config. This will add also the recommended keymaps.
 
-vim.pack.add { 'https://github.com/lewis6991/gitsigns.nvim' }
-
 require('gitsigns').setup {
   on_attach = function(bufnr)
     local gitsigns = require 'gitsigns'
@@ -33,25 +31,24 @@ require('gitsigns').setup {
 
     -- Actions
     -- visual mode
-    map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = 'git [s]tage hunk' })
-    map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = 'git [r]eset hunk' })
+    map('v', '<leader>ghs', function() gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = '[g]it [s]tage [h]unk' })
+    map('v', '<leader>ghr', function() gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = '[g]it [r]eset hunk' })
     -- normal mode
-    map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
-    map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
-    map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
-    map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
-    map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
-    map('n', '<leader>hi', gitsigns.preview_hunk_inline, { desc = 'git preview hunk [i]nline' })
-    map('n', '<leader>hb', function() gitsigns.blame_line { full = true } end, { desc = 'git [b]lame line' })
-    map('n', '<leader>hd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
-    map('n', '<leader>hD', function() gitsigns.diffthis '@' end, { desc = 'git [D]iff against last commit' })
-    map('n', '<leader>hQ', function() gitsigns.setqflist 'all' end, { desc = 'git hunk [Q]uickfix list (all files in repo)' })
-    map('n', '<leader>hq', gitsigns.setqflist, { desc = 'git hunk [q]uickfix list (all changes in this file)' })
+    map('n', '<leader>ghs', gitsigns.stage_hunk, { desc = '[g]it [s]tage [h]unk' })
+    map('n', '<leader>ghr', gitsigns.reset_hunk, { desc = '[g]it [r]eset [h]unk' })
+    map('n', '<leader>ghS', gitsigns.stage_buffer, { desc = '[g]it [S]tage buffer' })
+    map('n', '<leader>ghR', gitsigns.reset_buffer, { desc = '[g]it [R]eset buffer' })
+    map('n', '<leader>ghp', gitsigns.preview_hunk_inline, { desc = '[g]it [p]review [h]unk inline' })
+    map('n', '<leader>gb', function() gitsigns.blame { full = true } end, { desc = 'git [b]lame' })
+    map('n', '<leader>gd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
+    map('n', '<leader>gD', function() gitsigns.diffthis '@' end, { desc = 'git [D]iff against last commit' })
+    map('n', '<leader>gQ', function() gitsigns.setqflist 'all' end, { desc = 'git hunk [Q]uickfix list (all files in repo)' })
+    map('n', '<leader>gq', gitsigns.setqflist, { desc = 'git hunk [q]uickfix list (all changes in this file)' })
     -- Toggles
-    map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
-    map('n', '<leader>tw', gitsigns.toggle_word_diff, { desc = '[T]oggle git intra-line [w]ord diff' })
+    map('n', '<leader>gtb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
+    map('n', '<leader>gtw', gitsigns.toggle_word_diff, { desc = '[T]oggle git intra-line [w]ord diff' })
 
     -- Text object
-    map({ 'o', 'x' }, 'ih', gitsigns.select_hunk)
+    map({ 'o', 'x' }, 'gih', gitsigns.select_hunk)
   end,
 }
