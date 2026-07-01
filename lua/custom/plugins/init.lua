@@ -4,6 +4,7 @@
 -- See the kickstart.nvim README for more information
 
 -- TODO: consider Hoffs/omnisharp-extended-lsp.nvim if missing features with Omnisharp
+-- TODO: should find an option for spellchecking within code
 
 -- Iterate over all Lua files in the plugins directory and load them
 local plugins_dir = vim.fs.joinpath(vim.fn.stdpath 'config', 'lua', 'custom', 'plugins')
