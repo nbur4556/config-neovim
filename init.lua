@@ -781,8 +781,9 @@ do
   vim.list_extend(ensure_installed, {
     -- You can add other tools here that you want Mason to install
     'clangd',
-    'pyright',
+    'gopls',
     'omnisharp',
+    'pyright',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
